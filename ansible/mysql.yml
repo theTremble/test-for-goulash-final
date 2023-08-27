@@ -1,0 +1,21 @@
+---
+- name: DB installation
+  hosts: it-project-db-1
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+    - name: Create MySQL Database
+      mysql_db:
+        name: "{{ db_name }}"
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+        state: present
+
+    - name: Create MySQL User
+      mysql_user:
+        name: "{{ db_user }}"
+        password: "{{ db_pass }}"
+        priv: "{{ db_name }}.*:ALL"
+        login_unix_socket: /var/run/mysqld/mysqld.sock
+        state: present

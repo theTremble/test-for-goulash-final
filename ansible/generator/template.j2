@@ -1,0 +1,20 @@
+[it-project-db-1:children]
+mysql1
+mysql2
+mysql3
+
+[init-master:children]
+mysql1
+
+[init-slaves:children]
+mysql2
+mysql3
+
+[mysql1]
+it-project-db-1-master-1 ansible_host={{ db_main_ip }}
+
+[mysql2]
+it-project-db-1-slave-2 ansible_host={{ db_slave_ips[0] }}
+
+[mysql3]
+it-project-db-1-slave-3 ansible_host={{ db_slave_ips[1] }}

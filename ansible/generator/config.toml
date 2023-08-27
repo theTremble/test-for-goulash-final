@@ -1,0 +1,13 @@
+[sites.testpartner]
+id=11
+server_group="it-project-db"
+server_ip.main="13.51.172.182"
+partner_name="testpartner"
+
+
+[sites.testpartner.db]
+host="13.51.172.182"
+slaves=["16.171.226.16","51.20.18.242"]
+base="dev"
+user="dev"
+password="testpartner_db"

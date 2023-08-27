@@ -1,0 +1,7 @@
+---
+- name: Prepare for DB installation
+  hosts: it-project-db-1
+  become: yes
+  become_method: sudo
+  roles:
+  - deploy_mysql
