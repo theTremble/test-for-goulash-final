@@ -1,4 +1,5 @@
 ﻿#РЕШЕНИЕ
+
 #Генерация inventory из папки ansible/generate (предварительно заменить IP серверов в файле config.toml на нужные)
 python3 inv_generator.py
 
