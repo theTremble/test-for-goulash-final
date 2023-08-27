@@ -5,13 +5,13 @@
   apt: update_cache=yes
 
 - name: Install MySql server
-  apt: name=mysql-server=8.0.34-0ubuntu0.22.04.1 state=present
+  apt: name=mysql-server={{ mysql_version | default('8.0.34-0ubuntu0.22.04.1', true) }} state=present
 
 - name: Start service
   service: name=mysql state=started enabled=yes
 
 - name: Install pip3
-  apt: name=python3-pip state=latest
+  apt: name=python3-pip state=present
 
 - name: Install PyMySQL package
   ansible.builtin.pip:
